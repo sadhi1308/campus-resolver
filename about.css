@@ -1,0 +1,175 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+/* BACKGROUND */
+body{
+background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+url("about-bg.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+color:white;
+min-height:100vh;
+}
+
+/* NAVBAR */
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#0b3d91;
+padding:15px 40px;
+}
+
+.navbar h2{
+color:white;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.menu a:hover,
+.menu .active{
+color:#ffd700;
+}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:120px 20px 50px 20px;
+animation:fadeDown 1.5s ease;
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+/* MISSION - Stylish Card Design */
+.mission{
+width:70%;
+margin:40px auto;
+padding:40px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(8px);
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,0.3);
+text-align:center;
+animation:fadeIn 2s ease;
+}
+
+.mission h2{
+margin-bottom:15px;
+font-size:28px;
+color:#ffd700;
+}
+
+.mission p{
+font-size:18px;
+line-height:1.7;
+}
+
+/* PROCESS SECTION */
+.process-section{
+text-align:center;
+margin-top:70px;
+}
+
+.process-section h2{
+margin-bottom:30px;
+}
+
+/* PROCESS FLOW */
+.process{
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+gap:15px;
+}
+
+/* Updated Step Style */
+.step{
+background:#0b3d91;
+color:white;
+padding:12px 28px;
+border-radius:30px;
+font-weight:bold;
+box-shadow:0 4px 15px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.step:hover{
+background:#ffd700;
+color:#0b3d91;
+transform:scale(1.05);
+}
+
+/* Arrow Style Updated */
+.arrow{
+font-size:26px;
+color:#ffd700;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+@keyframes fadeDown{
+from{
+opacity:0;
+transform:translateY(-30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.menu{
+margin-top:10px;
+}
+
+.menu a{
+display:block;
+margin:8px 0;
+}
+
+.hero h1{
+font-size:28px;
+}
+
+.mission{
+width:90%;
+padding:25px;
+}
+
+.process{
+flex-direction:column;
+}
+
+.arrow{
+transform:rotate(90deg);
+}
+
+}

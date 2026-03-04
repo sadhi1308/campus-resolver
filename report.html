@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Report - Campus Resolver</title>
+<link rel="stylesheet" href="report.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <h2>Campus Resolver</h2>
+</div>
+
+<!-- Welcome User -->
+<div style="text-align:center; margin:20px 0;">
+  <h3 id="welcomeUser"></h3>
+</div>
+
+<!-- FORM SECTION -->
+<div class="form-container">
+  <h2>Report an Issue</h2>
+  <form id="reportForm">
+    <label>Your Name</label>
+    <input type="text" required>
+
+    <label>registration number</label>
+    <input type="text" required>
+
+
+    <label>Email</label>
+    <input type="email" required>
+
+    <label for="department">Department</label>
+<select id="department" name="department" required>
+    <option value="">Select Department</option>
+    <option value="CSE">CSE</option>
+    <option value="ECE">ECE</option>
+    <option value="EEE">EEE</option>
+    <option value="MECH">MECH</option>
+    <option value="CIVIL">CIVIL</option>
+    <option value="OTHER">Other</option>
+</select>
+
+<label for="year">Year</label>
+<select id="year" name="year" required>
+    <option value="">Select Year</option>
+    <option value="1">1st Year</option>
+    <option value="2">2nd Year</option>
+    <option value="3">3rd Year</option>
+    <option value="4">4th Year</option>
+</select>
+
+    <label>Issue Title</label>
+    <input type="text" required>
+
+    <label>Issue Description</label>
+    <textarea required></textarea>
+
+    <button type="submit">Submit</button>
+
+    <p id="successMsg"></p>
+  </form>
+
+
+  <!-- Back to Login Link -->
+  <div class="back-login">
+    <a href="login.html" onclick="localStorage.removeItem('loggedUser')">Back to Login</a>
+  </div>
+</div>
+
+<script>
+// Block direct access
+window.onload = function(){
+  let user = localStorage.getItem("loggedUser");
+  if(!user){
+    window.location.href = "login.html";
+  } else {
+    document.getElementById("welcomeUser").innerText = "Welcome, " + user + " 👋";
+  }
+};
+
+// Submit Form
+document.getElementById("reportForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  
+  // Show success message
+  const msg = document.getElementById("successMsg");
+  msg.innerText = "Complaint submitted successfully ✅";
+  msg.style.display = "block";
+
+  // Auto logout and redirect after 2 sec
+  setTimeout(()=>{
+    localStorage.removeItem("loggedUser");
+    window.location.href = "login.html";
+  }, 2000);
+});
+
+// Hide success message if user edits
+const inputs = document.querySelectorAll("#reportForm input, #reportForm textarea");
+inputs.forEach(input => {
+  input.addEventListener("input", ()=>{
+    document.getElementById("successMsg").style.display = "none";
+  });
+});
+</script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyD3JeA2KJVN4qxokOTmYvzv4FukME6_saQ",
+    authDomain: "aws-project-25a8a.firebaseapp.com",
+    projectId: "aws-project-25a8a",
+    storageBucket: "aws-project-25a8a.firebasestorage.app",
+    messagingSenderId: "867531077229",
+    appId: "1:867531077229:web:aac26827d0b13a8f1eb164"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
+
+</body>
+</html>

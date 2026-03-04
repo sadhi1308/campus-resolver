@@ -1,0 +1,59 @@
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#f4f6f9;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.login-box{
+  background:#fff;
+  padding:30px 40px;
+  border-radius:8px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+  width:300px;
+  text-align:center;
+}
+
+h2{
+  color:#1e3c72;
+  margin-bottom:20px;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:1px solid #ccc;
+  border-radius:4px;
+}
+
+button{
+  width:100%;
+  background:#1e3c72;
+  color:#fff;
+  padding:10px;
+  margin-top:10px;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+  font-size:16px;
+}
+
+/* Error message */
+.error{
+  color:red;
+  font-size:14px;
+  margin-top:10px;
+}
+
+/* Back to Home button */
+.back-home-btn{
+  background:#555;
+  margin-top:15px;
+}
+.back-home-btn:hover{
+  background:#333;
+}

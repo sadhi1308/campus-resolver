@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login</title>
+<link rel="stylesheet" href="Admin-login.css">
+</head>
+<body>
+
+<div class="login-box">
+  <h2>Admin Login</h2>
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+  <p class="error" id="error-msg"></p>
+  
+  <!-- Back to Home Button -->
+  <button class="back-home-btn" onclick="goHome()">Back to Home</button>
+</div>
+
+<script>
+function login(){
+  const user = document.getElementById('username').value;
+  const pass = document.getElementById('password').value;
+
+  if(user === 'admin' && pass === 'admin123'){
+    localStorage.setItem('adminLoggedIn', 'true');
+    window.location.href = 'admin-dashboard.html';
+  } else {
+    document.getElementById('error-msg').textContent = 'Invalid credentials!';
+  }
+}
+
+// Back to Home function
+function goHome(){
+  window.location.href = 'index.html';
+}
+</script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyD3JeA2KJVN4qxokOTmYvzv4FukME6_saQ",
+    authDomain: "aws-project-25a8a.firebaseapp.com",
+    projectId: "aws-project-25a8a",
+    storageBucket: "aws-project-25a8a.firebasestorage.app",
+    messagingSenderId: "867531077229",
+    appId: "1:867531077229:web:aac26827d0b13a8f1eb164"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
+
+</body>
+</html>

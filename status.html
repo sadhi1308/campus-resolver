@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Check Status - Campus Resolver</title>
+<link rel="stylesheet" href="status.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<div class="navbar">
+<h2>Campus Resolver</h2>
+<div class="menu">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="status.html">Status</a>
+<a href="contact.html">Contact</a>
+<a href="admin-login.html" id="admin-link">Admin Login</a>
+
+</div>
+</div>
+
+<div class="form-container">
+<div class="form-card">
+
+<h1>Track Complaint Status</h1>
+
+<label>Issue ID</label>
+<input type="text" id="trackId" placeholder="Enter Issue ID">
+
+<button onclick="checkStatus()" class="submit-btn">
+View Status
+</button>
+
+<p id="statusResult"></p>
+
+</div>
+</div>
+
+<script>
+function checkStatus(){
+
+let id = document.getElementById("trackId").value.trim();
+let result = document.getElementById("statusResult");
+
+result.innerHTML = "";
+
+if(id === ""){
+result.innerHTML = "Please fill out this field.";
+result.style.color = "red";
+return;
+}
+
+let dummyData = {
+"CR001": "Pending",
+"CR002": "In Progress",
+"CR003": "Resolved"
+};
+
+if(dummyData[id]){
+
+if(dummyData[id] === "Pending"){
+result.innerHTML = "Status: Pending";
+result.style.color = "orange";
+}
+else if(dummyData[id] === "In Progress"){
+result.innerHTML = "Status: In Progress";
+result.style.color = "#007bff";
+}
+else if(dummyData[id] === "Resolved"){
+result.innerHTML = "Status: Resolved";
+result.style.color = "green";
+}
+
+}
+else{
+result.innerHTML = "Invalid Issue ID.";
+result.style.color = "red";
+}
+
+}
+</script>
+
+</body>
+</html>

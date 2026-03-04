@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard - Campus Resolver</title>
+    <link rel="stylesheet" href="admin-dashboard.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h2>Admin Dashboard</h2>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-container">
+        <div class="stat-card">
+            <h3>Total Complaints</h3>
+            <p id="totalCount">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Pending</h3>
+            <p id="pendingCount">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>In Progress</h3>
+            <p id="progressCount">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Resolved</h3>
+            <p id="resolvedCount">0</p>
+        </div>
+    </div>
+
+    <!-- Complaint Boxes -->
+    <div class="complaint-container" id="complaintContainer"></div>
+
+    <script src="admin-dashboard.js"></script>
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyD3JeA2KJVN4qxokOTmYvzv4FukME6_saQ",
+    authDomain: "aws-project-25a8a.firebaseapp.com",
+    projectId: "aws-project-25a8a",
+    storageBucket: "aws-project-25a8a.firebasestorage.app",
+    messagingSenderId: "867531077229",
+    appId: "1:867531077229:web:aac26827d0b13a8f1eb164"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
+</body>
+</html>
